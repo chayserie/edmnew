@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.edm.phivolcs" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>EDM</name>
+    <description>
+       Exposure Database Module Tool
+    </description>
+    <author email="chayserie@gmail.com" href="phivolcs.edm.com">
+        Chayserie Moises
+    </author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+		<preference name="AndroidPersistentFileLocation" value="Internal" />
+		<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+		<preference name="loadUrlTimeoutValue" value="700000" />
+		<icon src="res/android/icon/icon.png" density="ldpi" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <plugin name="cordova.plugins.diagnostic" spec="~3.4.2" />
+</widget>

@@ -1,0 +1,54 @@
+Node version: v6.7.0
+
+Cordova version: 7.0.1
+
+Config.xml file: 
+
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.edm.sqlite" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>EDM</name>
+    <description>
+       Exposure Database Module Tool
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <platform name="android">
+        <allow-intent href="market:*" />
+		<preference name="AndroidPersistentFileLocation" value="Internal" />
+		<preference name="AndroidPersistentFileLocation" value="Compatibility" />
+		<preference name="loadUrlTimeoutValue" value="700000" />
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <platform name="android">
+        <icon density="ldpi" src="www/img/icon/logo.ico" />
+    </platform>
+    <plugin name="cordova.plugins.diagnostic" spec="~3.4.2" />
+</widget>
+
+
+Plugins: 
+
+cordova-plugin-camera,cordova-plugin-compat,cordova-plugin-file,cordova-plugin-geolocation,cordova-plugin-whitelist,cordova.plugins.diagnostic,plugin.google.maps
+
+Error retrieving Android platform information: 
+Android SDK is not set up properly. Make sure that the Android SDK 'tools' and 'platform-tools' directories are in the PATH variable. 
+
+Error: cmd: Command failed with exit code 1 Error output:
+'android' is not recognized as an internal or external command,
+operable program or batch file.
+
+
+

@@ -1,0 +1,11 @@
+
+	{ 
+	  "btype": "W1L",
+	  "desc": "Wood, Light Frame",
+	  "img": "W1L.JPG"
+	},
+	{ 
+	  "btype": "W3L",
+	  "desc": "Bamboo",
+	  "img": "W3L.JPG"
+	}

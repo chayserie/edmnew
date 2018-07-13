@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+	
+	
+		<head meta-charset="UTF-8">
+	<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+		<link rel="stylesheet" href="css/jquery.mobile.icons-1.4.5.min.css">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+		<link rel="stylesheet" href="css/my-theme.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="cordova.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAuKeAw28nBhzqkp2yt-u-UOgBxOh_fxWs"></script>
+		<script src="js/script.js"></script>
+		<script> window.location='./index.html';</script>
+	</head>
+	<body>
+		<!--main page-->
+		<div data-role="page" id="menu"><br>
+			<div id="myheader" data-theme="a" data-role="header" data-position="fixed">
+				<h1 id="headertitle">DASHBOARD</h1>
+			</div>
+			
+				<center>
+					<img id="logo" src="img/phivolcs.png"><br>
+					<h3 id="redas">REDAS - EDM</h3>
+				</center>
+				<div id = "menubtn" data-role="controlgroup">
+					<a href="#geolocation" class="ui-btn ui-corner-all">Locate Building</a>
+					<a id="dbbutton" href="#database" class="ui-btn ui-corner-all">Display Data</a>
+					<!--<a href="#addmarker" class="ui-btn ui-corner-all">add data</a>-->
+					<a href="#info" class="ui-btn ui-corner-all">Guide</a>
+					<a href="#settings" class="ui-btn ui-corner-all">Settings</a>
+					<a href="#quit" class="ui-btn ui-corner-all">Quit</a>
+				</div>	
+			<!--footer-->
+			<div data-theme="a" id="myfooter" data-role="footer" data-position="fixed">
+				<h1>REDAS - EDM</h1>
+			</div>
+		</div>
+		<!--display data-->
+		<div data-role="page" id="database">
+			<div id="myheader" data-theme="a" data-role="header" data-position="fixed">
+				<a href ="#back" data-rel="back"  class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext"></a>
+				<h1 id="headertitle">DATABASE</h1>
+				<a href="#geolocation" class="ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext"></a>
+			</div>
+			<ul data-role="listview" data-split-icon="gear" data-split-theme="a" data-filter='true' data-inset="true" id="db_ul">
+			</ul>
+			<div data-role="popup" id="edit" data-split-icon="gear" data-theme="a" data-overlay="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+			</div>	
+		</div>
+				
+		
+		<!--this page is to show specific data on the list view -->
+		
+		<div data-role="page" id="show">
+			<div data-role="header">
+				<h1 id="showheader"></h1>
+			</div>
+			<div data-role="main" class="ui-content">
+				<table style="width:100%;" id="detail"></table>
+			</div>
+		</div>
+		
+		
+		<!--display geolocation -->
+		<div data-role="page" id="geolocation">
+			<div id="myheader" data-theme="a" data-role="header" data-position="fixed">
+				<a href ="#menu" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext"></a>
+						<h1 id="headertitle">LOCATE BUILDING</h1>
+				<div id = "info">Click on the building to add data</div>
+			</div>
+			<div id="map">
+				<div id="add" class="round-button"><div class="round-button-circle"><a href="#" class="round-button">+</a></div></div>
+			</div>
+		</div>
+		</div>
+		<!--display Information -->
+		<div data-role="page" id="info">
+			<div id="myheader" data-theme="a" data-role="header" data-position="fixed">
+				<a href ="#back" data-rel="back" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext"></a>
+				<h1 id="headertitle">STRUCTURAL BUILDING TYPES</h1>
+			</div>
+			<ul data-role="listview" id="btypes">
+				
+			</ul>
+			
+			<script src="js/btypes.js"></script>
+			<div data-role="popup" id="btypeinfo" data-theme="a" class="ui-content 	 popwindow" style="width:300px; padding-bottom:2em;"><h3>W1L</h3>
+				<img src="img/bldg/W1L.JPG">
+			<p>WOOD, LIGHT FRAME</p><a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">Cancel</a>
+			</div>	
+			<!--footer-->
+			<div data-theme="a" id="myfooter" data-role="footer" data-position="fixed">
+				<h1>REDAS - EDM</h1>
+			</div>
+		</div>
+		<!--display Settings -->
+		<div data-role="page" id="settings">
+			<div id="myheader" data-theme="a" data-role="header" data-position="fixed">
+				<a href ="#menu" class="ui-btn ui-corner-all ui-icon-back ui-btn-icon-notext"></a>
+						<h1 id="headertitle">SETTINGS</h1>
+			</div>
+			<!--footer-->
+			<div data-theme="a" id="myfooter" data-role="footer" data-position="fixed">
+				<h1>REDAS - EDM</h1>
+			</div>
+		</div>
+		<!-- add marker to the map/data entry window -->
+		<div data-role="page" id="addmarker">
+		<div id="myheader" data-theme="a" data-role="header" data-position="fixed">
+				<h1 id="headertitle">DATA ENTRY</h1>
+		</div>
+			<div data-role="controlgroup" id="formentry">
+			<input type="hidden" id="data_id">
+			Latitude:<input disabled type="text" id="lat">
+			Longitude:<input disabled type="text" id="lng">
+			<button id="cameratakephotos">Take Picture</button>
+				<img id="myimg"></img>
+					<div data-role="collapsibleset" data-theme="a" data-content-theme="a">
+						<div data-role="collapsible">
+							<h3>GEOGRAPHY</h3>
+							<label class="req">Province Name</label>
+							<select id="prov" >
+							<option value = "default">Select Province</option> 
+							</select>
+							<label class="req">Municipality Name</label>
+							<select id="muni">
+								<option value = "default">Select Municipality</option>
+							</select>
+							<label class="req">Barangay Name</label>
+							<select id="brgy" >
+								<option value = "default">Select Barangay</option>
+							</select>
+							<label class="req">Street Name:</label>
+							<input type="text" name="street" id="street" placeholder="Street Name">
+							<label class="req">Building Name:</label>
+							<input type="text" name="bldg" id="bldg" placeholder="Building Name">
+						</div>
+						<div data-role="collapsible">
+							<h3>Building Usage Window</h3>
+							<label>Building Use</label>
+							<select id="buse-menu" >
+								<option value = "default">Select Building Use</option> 
+							</select>
+							<label>Land Use</label>
+							<select id="luse-menu">
+								<option value = "default">Select Land Use</option>
+							</select>
+							<label class="req">Estimated Number of Occupants</label>
+							<select id="numOcc-menu">
+								<option value = "default">Select Number of Occupants</option>
+							</select>
+						</div>
+					<div data-role="collapsible">
+				        <h3>Roof and Wall </h3>
+						<label>Roof Material</label>
+						<select id="roofMat-menu">
+							<option value = "default">Select Roof Material</option>
+						</select>
+						<label>Roof Pitch</label>
+						<select id="rPitch-menu">
+							<option value = "default">Select Roof Pitch</option>
+						</select>
+						<label>Wall Material</label>
+						<select id="wallMat-menu">
+							<option value = "default">Select Wall Material</option>
+						</select>
+					</div>
+					<div data-role="collapsible">
+					<h3>Floor and Facade</h3>
+					<label class="req">Floor Elevation</label>
+					<select id="fElev-menu">
+						<option  value = "default">Select Floor Elevation</option>
+					</select>
+					<label class="req">Number of Basement Levels</label>
+					<select id="numBase-menu">
+						<option value = "default">Select Number of Basement Levels</option>
+					</select>
+					<label class="req">Foundation Type</label>
+					<select id="fType-menu">
+						<option value = "default">Select Foundation Type</option>
+					</select>
+					<label class="req">Maximum Flood Level</label>
+					<select id="Maxflood">
+						<option  value = "default">Select Maximum Flood Level</option>
+					</select>
+					<label>Window Type</label>
+					<select id="Wtype">
+						<option value = "default">Select Window Type</option>
+					</select>
+					</div>
+					<div data-role="collapsible">
+					<h3>Building Structural System</h3>
+					<label class="req">Year Built</label>
+					<select id="ybuilt">
+						<option  value = "default">Select Year Built</option>
+					</select>
+					<label>Building Type</label>
+					<select id="btype">
+						<option value = "default">Select Building Type</option>
+					</select>
+					<label>Vertical Plan Shape</label>
+					<select id="vshape">
+						<option  value = "default">Select Vertical Plan Shape</option>
+					</select>
+					<label>Horizontal Plan Shape</label>
+					<select id="hshape">
+						<option  value = "default">Select Horizontal Plan Shape</option>
+					</select>
+					<label class="req">Building Width</label>
+					<select id="bwidth">
+						<option  value = "default">Select Building Width</option>
+					</select>
+					<label class="req">Building Depth</label>
+					<select id="bdepth">
+						<option  value = "default">Select Building Depth</option>
+					</select>
+					<label class="req">Number of Storeys</label>
+					<input type = "number" id="floor" >
+					<label>Building Condition</label>
+					<select id="bcondition">
+						<option  value = "default">Select Building Condition</option>
+					</select>
+					<label>Roof Frame Material</label>
+					<select id="rfmaterial">
+						<option  value = "default">Select Roof Frame Material</option>
+					</select>
+					<label>Bracing Material</label>
+					<select id="brmaterial">
+						<option  value = "default">Select Bracing Material</option>
+					</select>	
+					<label>Beam Material</label>
+					<select id="bmmaterial">
+						<option  value = "default">Select Beam Material</option>
+					</select>	
+					<label>Column Material</label>
+					<select id="clmaterial">
+						<option  value = "default">Select Column Material</option>
+					</select>
+					<label>Structural System Type</label>
+					<select id="stype">
+						<option  value = "default">Select Structural System Type</option>
+					</select>	
+					</div>
+					</div>
+					<button id="savedata" value="submit">Submit</button>
+				
+				<script src="js/populate.js"></script>
+			</div>
+			<div data-role="footer" data-theme="a" data-position="fixed">
+				<div data-role="navbar" class="tab">
+					<ul>
+						<li><a href="#info">Guide</a></li>
+						
+					</ul>
+				</div>
+			</div>
+			
+		</div>	
+	</body>
+		
+</html>
